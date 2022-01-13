@@ -28,9 +28,6 @@ except subprocess.CalledProcessError as e:
 seen = set()
 
 for f in files.strip().splitlines():
-  # Include only "test.xml" files, as "attempt_x" files repeat the same thing.
-  if not f.endswith(b"test.xml"):
-    continue
   # Just ignore any failures, they're probably not important
   try:
     r = JUnitXml.fromfile(f)
